@@ -1,0 +1,58 @@
+#post-listing-container{
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    padding-top: 100px;
+}
+#post-listing-form{
+    max-width: 950px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 200px;
+}
+#post-listing-form h1{
+    font-size: 60px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the space between the form elements */
+    max-width: 600px; /* Adjust the width of the form */
+    margin: 0 auto; /* Center the form in the page */
+  }
+  .narrow-field {
+    width: 200px; /* Set the width of the text fields */
+}
+
+/* Style full-width textfields */
+mwc-textfield[fullwidth] {
+    width: 100%;
+}
+
+  mwc-textfield {
+    --mdc-theme-primary: #6200ee; /* Primary color for the text fields */
+    --mdc-text-field-fill-color: #fff; /* Background color for the text fields */
+    --mdc-text-field-idle-line-color: rgba(0, 0, 0, 0.42); /* Color for the line under the text field */
+    --mdc-text-field-hover-line-color: #6200ee; /* Color for the line under the text field on hover */
+    --mdc-text-field-outlined-idle-border-color: rgba(0, 0, 0, 0.38); /* Color for the border of outlined text fields */
+    --mdc-text-field-outlined-hover-border-color: #6200ee; /* Color for the border of outlined text fields on hover */
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #6200ee; /* Adjust button background color to match your theme */
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #3700b3; /* Darker shade when hovering over the button */
+  }
+  .error {
+    border: 2px solid red; /* Highlights the field with a red border */
+  }
+  

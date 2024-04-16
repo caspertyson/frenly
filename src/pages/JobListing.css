@@ -1,0 +1,128 @@
+#job-description-container{
+    width: 100%;
+    background-color: white;
+    min-height: calc(100vh - 450px);
+    padding-bottom: 40px;
+    padding-top: 50px;
+}
+.job-listing {
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    margin-top: 50px;
+  }
+  
+  .job-image img {
+    width: 100%;
+    display: block; /* Remove any space below the image */
+    height: 200px;
+    object-fit: cover; /* Ensures image covers the area */
+
+  }
+  
+  .job-listing-details {
+    padding: 20px;
+  }
+  
+  .job-listing-title {
+    margin-top: 50px;
+    color: #333;
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  .job-meta {
+    color: #242424;
+    font-size: 18px;
+    margin: 10px 0;
+    line-height: 27px;
+  }
+  
+  .job-meta > div {
+    margin-bottom: 5px;
+  }
+  .job-meta-item{
+    display: flex;
+    align-items: center;
+  }
+  .job-meta-icon{
+    margin-right: 10px;
+    color: rgb(117, 116, 116);
+    font-size: 0;
+  }
+  .job-description {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .job-description h3{
+    color: rgb(43, 43, 43);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .job-description p{
+    color: rgb(43, 43, 43);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .job-actions {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  .job-actions h3{
+    color: rgb(43, 43, 43);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .job-actions p{
+    color: rgb(43, 43, 43);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-size: 16px;
+  }
+  
+  .apply-button, .save-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-button {
+    padding: 15px 30px;
+    border-radius: 10px;
+    background-color: rgb(93,71,234);
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .save-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  .posted-date{
+    color: rgb(99, 99, 99);
+    font-size: medium;
+    margin-top: 20px;
+  }
+  #loading-div{
+    height: 100vh;
+    background-color: white;
+  }
+  #be-careful-warning{
+    margin-top: 50px;
+  }
+  /* Add responsiveness */
+  @media (max-width: 768px) {
+    .job-listing {
+      flex-direction: column;
+    }
+  }
+  

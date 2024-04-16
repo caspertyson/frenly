@@ -1,0 +1,35 @@
+.app-cards-container {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+#view-candidates-content{
+    width: 80%;
+    margin: auto;
+}
+.app-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#app-card-email{
+    color: #333;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.app-card p {
+    color: #666;
+    line-height: 1.5;
+}

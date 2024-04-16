@@ -1,0 +1,86 @@
+.companies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 2048px;
+    margin: auto;
+    background-color: white;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .logo-container img {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-height: 100px; /* Adjust based on actual logo size */
+    max-width: 200px; /* Adjust based on actual logo size */
+  }
+  
+  .companies-text-container {
+    text-align: center;
+  }
+  
+  .companies-text-container h2 {
+    font-size: 2em;
+    width: fit-content;
+    padding-top: 65px;
+    color: #666;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+  .companies-text-container p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .companies-feature-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin-bottom: 0px;
+  }
+  
+  .company-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin-top: 50px;
+  }
+  
+  .company-feature .icon {
+    /* You can use actual icons here */
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px 3px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, spread radius, color */
+
+  }
+  
+  .company-feature h3 {
+    font-size: 1.3em;
+    margin: 0;
+    font-weight: 500;
+
+  }
+  
+  .company-feature p {
+    font-size: 1em;
+    color: #7b7a7a;
+    text-align: center;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: 5px;
+  }
+  

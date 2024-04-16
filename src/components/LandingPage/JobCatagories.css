@@ -1,0 +1,116 @@
+.jobcategories-container {
+    text-align: center;
+    background-color: white;
+  }
+  
+  .jobcategories-title {
+    color: #333;
+    font-size: 2.5rem;
+    padding-top: 100px;
+    margin-top: 0px;    
+  }
+  
+  .jobcategories-subtitle {
+    color: #888686;
+    margin-bottom: 60px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .jobcategories-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .jobcategories-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 150px; /* Set the width as per your design */
+    padding: 1.5rem;
+    padding-right: 3rem;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  .jobcategories-category:hover {
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .jobcategories-icon {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+  }
+  
+  .jobcategories-name {
+    font-size: 1rem;
+    color: #494949;
+    font-weight: 500;
+  }
+  
+  .jobcategories-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  .jobcategories-locations{
+    display: flex;
+    flex-direction: row;
+  }
+  .jobcategories-levels{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .jobcategories-filter-button {
+    border: none;
+    border: 1px solid #ddd;
+    background-color: #eaeaea;
+    border-radius: 30px;
+    padding: 0.8rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #333;
+    outline: none; /* Remove focus border */
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  .jobcategories-filter-button button{
+    display: flex;
+    align-items: center;
+  }
+  .jobcategories-filter-button:hover,
+  .jobcategories-filter-button:focus {
+    background-color: #ddd;
+  }
+  
+  #jobcategories-button-browse-listings{
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(to right, rgb(93,71,234), #c741e2);
+    color: white;
+    margin: auto;
+    font-size: 18px;
+    margin-top: 60px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+  }
+  /* Add any additional styles or responsive styles as needed */
+  
