@@ -16,6 +16,7 @@ function Application() {
     const [coverLetter, setCoverLetter] = useState("");
     const [cvFile, setCvFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
+    const [fileName, setFileName] = useState('');
 
     const handleCoverLetterChange = (event) => {
         setCoverLetter(event.target.value);
@@ -23,6 +24,9 @@ function Application() {
 
     const handleFileChange = (event) => {
         setCvFile(event.target.files[0]);
+        if (event.target.files[0]) {
+            setFileName(event.target.files[0].name); // Update the filename state
+          }      
     };
 
     const handleSubmit = async (event) => {
@@ -71,12 +75,16 @@ function Application() {
                 <form onSubmit={handleSubmit} className="application-form">
                     <h2 htmlFor="cvUpload" className="upload-label">
                         Upload Resumé
-                        <div id='upload-resume-button' onClick={handleUploadClick}>
-                            <FileUploadOutlinedIcon id="upload-cv-icon"/>
-                            Upload
-                            <input type="file" id="cvUpload" onChange={handleFileChange} style={{ display: 'none' }} />
-                        </div>
                     </h2>
+                        <div id='upload-component'>
+                            <div id='upload-resume-button' onClick={handleUploadClick}>
+                                <FileUploadOutlinedIcon id="upload-cv-icon"/>
+                                Upload
+                                <input type="file" id="cvUpload" onChange={handleFileChange} style={{ display: 'none' }} />
+                            </div>
+                            {fileName && <div id="file-name-display">{fileName}</div>}
+
+                        </div>
                     <p id='cover-letter-prompt'>Accepted file types: .doc, .docx, .pdf, .txt and .rtf (2MB limit).</p>
                     <h2 htmlFor="coverLetter" className="input-label">
                         Cover Letter

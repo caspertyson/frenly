@@ -37,24 +37,56 @@ function JobAdsPage() {
                 if (user) {
                     const userDocRef = doc(db, 'employers', user.uid);
                     try {
+                        // const docSnap = await getDoc(userDocRef);
+                        // if (docSnap.exists()) {
+                        //     console.log(docSnap)
+                        //     const jobPostingsQuery = query(
+                        //         collection(db, 'jobPostings'),
+                        //         where('employerEmail', '==', user.uid) // Assuming user.uid is available in this scope
+                        //     );
+                        //     const querySnapshot = await getDocs(jobPostingsQuery);
+                        //     const jobs = querySnapshot.docs.map(doc => {
+                        //         const data = doc.data();
+                        //         return {
+                        //             id: doc.id,
+                        //             title: data.title,
+                        //             status: data.status
+                        //         };
+                        //     });
+                        //     setJobs(jobs);
                         const docSnap = await getDoc(userDocRef);
                         if (docSnap.exists()) {
-                            console.log(docSnap)
-                            const jobPostingsQuery = query(
-                                collection(db, 'jobPostings'),
-                                where('employerEmail', '==', user.uid) // Assuming user.uid is available in this scope
+                          console.log(docSnap);
+                          const jobPostingsQuery = query(
+                            collection(db, 'jobPostings'),
+                            where('employerEmail', '==', user.uid) // Assuming user.uid is available in this scope
+                          );
+                          
+                          const querySnapshot = await getDocs(jobPostingsQuery);
+                          
+                          // Create an array to hold the updated job objects
+                          let jobsWithApplicantCount = [];
+                        
+                          for (let doc of querySnapshot.docs) {
+                            const data = doc.data();
+                            let job = {
+                              id: doc.id,
+                              title: data.title,
+                              status: data.status,
+                              numApplicants: 0 // Initialize with zero
+                            };
+                            
+                            const applicationsQuery = query(
+                              collection(db, 'applications'),
+                              where('listingUID', '==', job.id)
                             );
-                            const querySnapshot = await getDocs(jobPostingsQuery);
-                            const jobs = querySnapshot.docs.map(doc => {
-                                const data = doc.data();
-                                return {
-                                    id: doc.id,
-                                    title: data.title,
-                                    status: data.status
-                                };
-                            });
-                            setJobs(jobs);
-                        } else {
+                            const applicationsSnapshot = await getDocs(applicationsQuery);
+                            job.numApplicants = applicationsSnapshot.docs.length; // Set the number of applicants
+                            
+                            jobsWithApplicantCount.push(job); // Add the job with applicant count to the array
+                          }
+                          setJobs(jobsWithApplicantCount); // Set the updated jobs array in the state
+                    } else {
                             navigate('/sign-in-employer');
                         }
                     } catch (error) {
@@ -96,7 +128,7 @@ function JobAdsPage() {
                                             <TableCell>{job.status}</TableCell>
                                             <TableCell>{job.title}</TableCell>
                                             <TableCell>
-                                                <Link href={"/view-candidates/" + job.id}>View</Link>
+                                                <Link href={"/view-candidates/" + job.id}>View ({job.numApplicants})</Link>
                                             </TableCell>
                                             <TableCell>
                                                 <Link href={"/edit/" + job.id}>Edit</Link>

@@ -86,7 +86,6 @@ textarea {
     width: 120px;
     padding: 10px;
     color: #0056b3;
-    margin-top: 20px;
     cursor: pointer;
 }
 #upload-cv-icon{
@@ -97,3 +96,13 @@ textarea {
 .submit-btn:hover {
     background-color: #0056b3;
 }
+#file-name-display {
+    margin-left: 10px;
+    font-size: medium;
+    font-weight: 300;
+  }
+  #upload-component{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
