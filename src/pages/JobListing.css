@@ -120,9 +120,15 @@
     margin-top: 50px;
   }
   /* Add responsiveness */
-  @media (max-width: 768px) {
+  @media (max-width: 1030px) {
     .job-listing {
       flex-direction: column;
+    }
+    .job-image img {
+      
+    }
+    .job-listing {
+      width: 95%;
     }
   }
   

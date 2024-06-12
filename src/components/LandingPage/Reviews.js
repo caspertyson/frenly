@@ -20,7 +20,6 @@ function Reviews() {
                 <div id="single-review">
                     <p>We got the chance to hire a couple of students not expecting much, turns out they were some of best potential candidates that we've had in a long while.                    </p>
                     <h3>Kai Yamamotto, AKL
-
                     </h3>
                 </div>
             </div>

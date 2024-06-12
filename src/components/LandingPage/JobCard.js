@@ -6,7 +6,7 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 
 const JobCard = ({ job }) => (
   <div className="jobs-box">
-    <img src="students-1807505_640.jpg" alt={job.title} className="job-image" />
+    <img src="students-1807505_640.webp" alt={job.title} className="job-image" />
     <div className="job-info">
       <div className="job-title">{job.company}</div>
       <div className="company-name">{job.title}</div>

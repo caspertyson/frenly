@@ -33,3 +33,32 @@
     color: #666;
     line-height: 1.5;
 }
+.email-applicant-btn{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+#email-applicant-icon{
+    margin-right: 10px;
+}
+#not-a-match-button{
+    margin-top: 20px;
+    background-color: rgb(255, 62, 62);
+    font-weight: 700;
+}
+#applicant-actions{
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 1030px) {
+    .app-cards-container{
+        padding: 0;
+    }
+    #view-candidates-content{
+        width: 95%;
+    }
+    .app-card {
+        width: 80%;
+    }
+}

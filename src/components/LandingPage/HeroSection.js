@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import heroImage from "../../images/Background.png"
+import heroImage from "../../images/Background.webp"
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import EastIcon from '@mui/icons-material/East';

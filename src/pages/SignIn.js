@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, TextField, Checkbox, FormControlLabel, Link, Typography, Box } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
-import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, getAuth, onAuthStateChanged, getRedirectResult } from 'firebase/auth';
 import { auth, googleAuthProvider } from '../firebaseConfig'; 
 import { useAuth } from '../components/UserContext'; // Adjust the import path to where UserContext is located
 import { useNavigate } from 'react-router-dom';
@@ -19,12 +19,34 @@ function SignIn() {
     const signInWithGoogle = () => {
         signInWithPopup(auth, googleAuthProvider)
         .then((result) => {
-            navigate('/'); // Navigate to the home page
+          if(result){
+            navigate('/', { state: { message: "Logged In Successfully!" } }); // Navigate to the home page
+          }
         })
         .catch((error) => {
           console.error(error);
         });
     };
+  //   const signInWithGoogle = () => {
+  //     signInWithRedirect(auth, googleAuthProvider)
+  //         .catch((error) => {
+  //             console.error(error);
+  //         });
+  // };
+
+  //   useEffect(() => {
+  //     // Check for the result from signInWithRedirect when the component mounts
+  //     getRedirectResult(auth)
+  //         .then((result) => {
+  //             if (result) {
+  //                 // User has signed in after a redirect.
+  //                 navigate('/', { state: { message: "Logged In Successfully!" } }); // Navigate to the home page
+  //             }
+  //         })
+  //         .catch((error) => {
+  //             console.error(error);
+  //         });
+  // }, [navigate]);
 
   return (
     <Box sx={styles.container}>

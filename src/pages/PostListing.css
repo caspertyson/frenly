@@ -1,5 +1,4 @@
 #post-listing-container{
-    min-height: 100vh;
     width: 100%;
     background-color: white;
     padding-top: 100px;
@@ -56,3 +55,8 @@ mwc-textfield[fullwidth] {
     border: 2px solid red; /* Highlights the field with a red border */
   }
   
+  @media (max-width: 1030px) {
+    #post-listing-form{
+      width: 95%;
+    }
+  }

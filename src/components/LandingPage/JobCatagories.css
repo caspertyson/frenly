@@ -113,4 +113,42 @@
     align-items: center;
   }
   /* Add any additional styles or responsive styles as needed */
-  
+  @media (max-width: 1030px) {
+    .jobcategories-title{
+      font-size: 30px;
+    }
+    .jobcategories-subtitle{
+      font-size: 16px;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+    .jobcategories-categories{
+
+    }
+    .jobcategories-category{
+      flex-direction: column;
+      width: 100px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .jobcategories-name{
+      font-size: 15px;
+    }
+    .jobcategories-filter-button{
+      padding: 0.4rem;
+      margin-bottom: 10px;
+    }
+    .jobcategories-locations{
+      width: 95%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #jobcategories-button-browse-listings{
+      margin-top: 30px;
+    }
+  }

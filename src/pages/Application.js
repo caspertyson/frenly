@@ -17,11 +17,20 @@ function Application() {
     const [cvFile, setCvFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [fileName, setFileName] = useState('');
+    const [firstname, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [userEmail, setUserEmail] = useState("")
 
     const handleCoverLetterChange = (event) => {
         setCoverLetter(event.target.value);
     };
 
+    useEffect(() => {
+        if(user){
+            setUserEmail(user.email)
+        }
+      }, [user]);
+    
     const handleFileChange = (event) => {
         setCvFile(event.target.files[0]);
         if (event.target.files[0]) {
@@ -37,8 +46,8 @@ function Application() {
             return;
         }
         // Check if both the cover letter and CV file are provided
-        if (!coverLetter.trim() || !cvFile) {
-            setErrorMessage("Please provide both a cover letter and a CV file.");
+        if (!coverLetter.trim() || !cvFile|| !firstname.trim()|| !lastName.trim()|| !userEmail.trim()) {
+            setErrorMessage("Please fill out all feilds.");
             return;
         }
 
@@ -50,9 +59,11 @@ function Application() {
             const applicationRef = await addDoc(collection(db, 'applications'), {
                 coverLetter: coverLetter,
                 cvUrl: fileSnapshot.metadata.fullPath,
-                userEmail: user.email,
+                userEmail: userEmail,
                 listingUID: listingUID,
-                timestamp: new Date()
+                timestamp: new Date(),
+                firstName: firstname,
+                lastName: lastName,
             });
 
             console.log('Application submitted:', applicationRef.id);
@@ -73,8 +84,23 @@ function Application() {
             <div className="application-container">
                 <h1>Job Application</h1>
                 <form onSubmit={handleSubmit} className="application-form">
+                    <h3>First Name</h3>
+                    <input className='input-box-name' id='input-box-personal-details' 
+                    placeholder='First Name'
+                    value={firstname}
+                    onChange={(e) => setFirstName(e.target.value)}></input>
+                    <h3>Last Name</h3>
+                    <input className='input-box-name' id='input-box-personal-details' 
+                    placeholder='Family Name'
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}></input>
+                    <h3>Email</h3>
+                    <input id='input-box-personal-details'  
+                    placeholder='example@example.com'
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}></input>
                     <h2 htmlFor="cvUpload" className="upload-label">
-                        Upload Resumé
+                        Resumé
                     </h2>
                         <div id='upload-component'>
                             <div id='upload-resume-button' onClick={handleUploadClick}>

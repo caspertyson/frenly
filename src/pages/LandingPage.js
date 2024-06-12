@@ -17,7 +17,6 @@ function LandingPage() {
             <JobsSection />
             <JobCategories/>
             <Services/>
-            {/* <WhoFor/> */}
             <Mission/>
             <Reviews/>
             <Footer/>

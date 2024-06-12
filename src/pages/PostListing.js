@@ -6,6 +6,7 @@ import { db } from '../firebaseConfig'; // Adjust the path as necessary
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/UserContext'; // Adjust the import path to where UserContext is located
+import Footer from '../components/Footer';
 
 function PostListing() {
   const { user, loading } = useAuth();
@@ -69,23 +70,26 @@ function PostListing() {
 
 
   return (
-    <div id='post-listing-container'>
-      <div id='post-listing-form'>
-        <h1>Post Your Job</h1>
-        <form onSubmit={handleSubmit}>
-          <mwc-textfield required label="Job Title" name="title" value={formValues.title} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Company" name="company" value={formValues.company} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Role" name="type" value={formValues.type} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Hours" name="hours" value={formValues.hours} onInput={handleChange} type="number" className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Location" name="location" value={formValues.location} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textarea required label="About The Role" name="aboutTheRole" value={formValues.aboutTheRole} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
-          <mwc-textarea required label="About The Company" name="aboutTheCompany" value={formValues.aboutTheCompany} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
-          <mwc-textarea required label="Skills You Need" name="skillsYouNeed" value={formValues.skillsYouNeed} onInput={handleChange}  rows="5"  fullwidth ></mwc-textarea>
-          {allTextAreasAreNotFilled && <p>Please fill in all text-boxes</p>}
-          <button type="submit" disabled={isSubmitting}>Submit</button>
-        </form>
+    <>
+      <div id='post-listing-container'>
+        <div id='post-listing-form'>
+          <h1>Post Your Job</h1>
+          <form onSubmit={handleSubmit}>
+            <mwc-textfield required label="Job Title" name="title" value={formValues.title} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Company" name="company" value={formValues.company} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Role" name="type" value={formValues.type} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Hours" name="hours" value={formValues.hours} onInput={handleChange} type="number" className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Location" name="location" value={formValues.location} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textarea required label="About The Role" name="aboutTheRole" value={formValues.aboutTheRole} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
+            <mwc-textarea required label="About The Company" name="aboutTheCompany" value={formValues.aboutTheCompany} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
+            <mwc-textarea required label="Skills You Need" name="skillsYouNeed" value={formValues.skillsYouNeed} onInput={handleChange}  rows="5"  fullwidth ></mwc-textarea>
+            {allTextAreasAreNotFilled && <p>Please fill in all text-boxes</p>}
+            <button type="submit" disabled={isSubmitting}>Submit</button>
+          </form>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

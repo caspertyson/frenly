@@ -70,7 +70,7 @@ function JobListing() {
       <div id='job-description-container'>
         <div className="job-listing">
           <div className="job-image">
-            <img src="../students-1807505_640.jpg" alt={`${job.company} - ${job.title}`} />
+            <img src="../students-1807505_640.webp" alt={`${job.company} - ${job.title}`} />
           </div>
           <div className="job-listing-details">
             <h1 className="job-listing-title">{job.title}</h1>

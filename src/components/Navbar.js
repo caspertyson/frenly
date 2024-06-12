@@ -39,6 +39,7 @@ function Navbar() {
             .then(() => {
                 // setUser(null); // Update the state to reflect that the user has logged out
                 console.log("User signed out successfully");
+                navigate("/")
             })
             .catch((error) => {
                 console.error("Error signing out: ", error);
@@ -54,6 +55,13 @@ function Navbar() {
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleMenuToggle = () => {
+      setIsMenuOpen(!isMenuOpen);
+    };
+  
+  
 
     return (
         <div id='navbar'>
@@ -84,7 +92,7 @@ function Navbar() {
         <div id='log-in-out-container'>
         {user ? (
             <>
-            { ((location.pathname == '/') || (location.pathname == '/employers') || (location.pathname == '/post-listing') || (location.pathname.startsWith('/roles/')) || (location.pathname.startsWith('/apply/'))) && (
+            { ((location.pathname == '/') || (location.pathname == '/employers') || (location.pathname == '/post-listing') || (location.pathname.startsWith('/roles/')) || (location.pathname.startsWith('/apply/')) || (location.pathname.startsWith('/view-candidates/')) || (location.pathname.startsWith('/edit/'))) && (
                     <>
                         <div id="post-listing-button" onClick={toggleDropdown} ref={dropdownRef} className={dropdownOpen ? 'active' : ''}>
                             {getFirstName(user.displayName)}

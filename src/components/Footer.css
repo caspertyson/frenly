@@ -8,6 +8,7 @@
   .footer-container h2{
     margin-left: 0px;
     font-weight: 600;
+    width: 100px;
   }
   .footer-container a{
     color: black;
@@ -55,4 +56,27 @@
     align-items: center;
     padding-left: 70px;
     font-size: 14px;
+  }
+  @media (max-width: 1030px) {
+    .footer-container{
+      flex-direction: column;
+    }
+    .footer-column{
+      padding-top: 0px;
+      font-size: 17px;
+    }
+    .footer-container h2{
+      margin-bottom: 0;
+      margin-top: 10px;
+      font-size: larger;
+    }
+    .quarterWidth {
+      width: 150px;
+    }
+    .half-width h2{
+      padding-left: 0px;
+      margin-top: 0px;
+      padding-bottom: 20px;
+      font-size: 25px;
+    }
   }

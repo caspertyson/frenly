@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, TextField, Checkbox, FormControlLabel, Link, Typography, Box } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
-import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged, getRedirectResult } from 'firebase/auth';
 import { auth, googleAuthProvider } from '../firebaseConfig'; 
 import { useAuth } from '../components/UserContext'; // Adjust the import path to where UserContext is located
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig'; // Import your Firestore instance
 import { doc, getDoc, setDoc } from 'firebase/firestore'; // Ensure these are imported
-
 
 function SignIn() {
     const user = useAuth(); // Use the useAuth hook to access the user
@@ -17,28 +16,66 @@ function SignIn() {
     const toggleForm = () => {
         setIsSignUp(!isSignUp); // Toggle between true and false
     };
-    const signInWithGoogle = () => {
-        signInWithPopup(auth, googleAuthProvider)
-        .then(async (result) => {
-            const user = result.user;
-            const userRef = doc(db, 'employers', user.uid); // Create a reference to the Firestore document
-    
-            // Retrieve the document
-            const docSnap = await getDoc(userRef);
-    
-            if (!docSnap.exists()) {
-                // Set the document if it does not exist
-                await setDoc(userRef, {
-                    email: user.email
-                });
-            }
-    
-            navigate('/employers');
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    };
+  //   const signInWithGoogle = () => {
+  //     signInWithRedirect(auth, googleAuthProvider)
+  //         .catch((error) => {
+  //             console.error(error);
+  //         });
+  // };
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleAuthProvider)
+    .then(async (result) => {
+      if(result){
+
+        const user = result.user;
+        const userRef = doc(db, 'employers', user.uid); // Create a reference to the Firestore document
+
+        // Retrieve the document
+        const docSnap = await getDoc(userRef);
+
+        if (!docSnap.exists()) {
+            // Set the document if it does not exist
+            await setDoc(userRef, {
+                email: user.email
+            });
+        }
+
+        navigate('/', { state: { message: "Logged In Successfully!" } }); // Navigate to the home page
+      }
+    })
+      
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+  //   useEffect(() => {
+  //     // Check for the result from signInWithRedirect when the component mounts
+  //     getRedirectResult(auth)
+  //         .then( async(result) => {
+
+  //           if(result){
+  //             const user = result.user;
+  //             const userRef = doc(db, 'employers', user.uid); // Create a reference to the Firestore document
+      
+  //             // Retrieve the document
+  //             const docSnap = await getDoc(userRef);
+      
+  //             if (!docSnap.exists()) {
+  //                 // Set the document if it does not exist
+  //                 await setDoc(userRef, {
+  //                     email: user.email
+  //                 });
+  //             }
+      
+  //             navigate('/employers');
+  
+  //           }
+  //         })
+  //         .catch((error) => {
+  //             console.error(error);
+  //         });
+  // }, [navigate]);
 
   return (
     <Box sx={styles.container}>

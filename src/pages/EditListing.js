@@ -6,6 +6,7 @@ import { db } from '../firebaseConfig';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import {  useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../components/UserContext';
+import Footer from '../components/Footer';
 
 function EditListing() {
   const { user, loading } = useAuth();
@@ -71,23 +72,27 @@ function EditListing() {
   };
 
   return (
-    <div id='post-listing-container'>
-      <div id='post-listing-form'>
-        <h1>Edit Your Job Posting</h1>
-        <form onSubmit={handleSubmit}>
-          <mwc-textfield required label="Job Title" name="title" value={formValues.title} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Company" name="company" value={formValues.company} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Type" name="type" value={formValues.type} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Hours" name="hours" value={formValues.hours} onInput={handleChange} type="number" className="narrow-field"></mwc-textfield>
-          <mwc-textfield required label="Location" name="location" value={formValues.location} onInput={handleChange} className="narrow-field"></mwc-textfield>
-          <mwc-textarea required label="About The Role" name="aboutTheRole" value={formValues.aboutTheRole} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
-          <mwc-textarea required label="About The Company" name="aboutTheCompany" value={formValues.aboutTheCompany} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
-          <mwc-textarea required label="Skills You Need" name="skillsYouNeed" value={formValues.skillsYouNeed} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
-          <label>Active:<input type="checkbox" checked={isActive} onChange={handleCheckboxChange}/></label>
-          <button type="submit">Update Listing</button>
-        </form>
+    <>
+      <div id='post-listing-container'>
+        <div id='post-listing-form'>
+          <h1>Edit Your Job Posting</h1>
+          <form onSubmit={handleSubmit}>
+            <mwc-textfield required label="Job Title" name="title" value={formValues.title} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Company" name="company" value={formValues.company} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Type" name="type" value={formValues.type} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Hours" name="hours" value={formValues.hours} onInput={handleChange} type="number" className="narrow-field"></mwc-textfield>
+            <mwc-textfield required label="Location" name="location" value={formValues.location} onInput={handleChange} className="narrow-field"></mwc-textfield>
+            <mwc-textarea required label="About The Role" name="aboutTheRole" value={formValues.aboutTheRole} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
+            <mwc-textarea required label="About The Company" name="aboutTheCompany" value={formValues.aboutTheCompany} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
+            <mwc-textarea required label="Skills You Need" name="skillsYouNeed" value={formValues.skillsYouNeed} onInput={handleChange} rows="5" fullwidth></mwc-textarea>
+            <label>Active:<input type="checkbox" checked={isActive} onChange={handleCheckboxChange}/></label>
+            <button type="submit">Update Listing</button>
+          </form>
+        </div>
       </div>
-    </div>
+
+      <Footer/>
+    </>
   );
 }
 

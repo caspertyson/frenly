@@ -1,0 +1,79 @@
+.steps-container {
+    text-align: center;
+    border-top: 1px solid rgb(218, 215, 215);
+    padding-top: 50px;
+  }
+  .steps-container h2{
+    margin: auto;
+    width: 500px;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+  .steps {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+  }
+  
+  .step-icon {
+    /* Add styles for your icons here */
+    margin-bottom: 1em;
+  }
+  
+  .step-title {
+    /* Add styles for your titles here */
+    margin-bottom: 0.5em;
+    width: 300px;
+  }
+  
+  .step-description {
+    /* Add styles for your descriptions here */
+    font-size: 0.9em;
+    color: #666;
+    height: 100px;
+  }
+  #post-listing-button-employer-page{
+    border-color: black;
+
+  }
+  a{
+    color: black;
+  }
+  #employers-container{
+    padding: 20px;
+  }
+
+  @media (max-width: 1030px) {
+
+    .steps{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-description{
+      margin-bottom: 0;
+    }
+    .steps-container h2{
+      font-size: 22px;
+      width: 100%;
+    }
+    #employers-container{
+      padding: 0px;
+    }
+    #subtitle-employer-page{
+      margin: 0;
+    }
+    #employers-content{
+      width: 95%;
+      margin: auto;
+    }
+    #employers-table-container{
+      width: 100%;
+    }
+  }
